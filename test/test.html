@@ -8,35 +8,46 @@
 
     <script src="../src/twitter.js" type="text/javascript" charset="utf-8"></script>
     <script type="text/javascript" charset="utf-8">
-    getTwitters('remysTweets1', {
+    
+    getTwitters('remysTweets1', { 
         id: 'rem', 
-        prefix: '<img height="16" width="16" src="%profile_image_url%" /><a href="http://twitter.com/%screen_name%">%name%</a> said: ', 
-        clearContents: false, // leave the original message in place
-        count: 10, 
-        withFriends: true,
-        ignoreReplies: false,
-        newwindow: true
+        count: 1, 
+        enableLinks: true, 
+        ignoreReplies: true, 
+        clearContents: true,
+        template: '"%text%" <a href="http://twitter.com/%user_screen_name%/statuses/%id_str%/">%time%</a>'
     });
     
-    getTwitters('remysTweets2', {
-        id: 'rem',
-        timeout: 1,
-        onTimeout: function () {
-            this.innerHTML = 'Actually, Twitter is down right now, but you can <a href="http://twitter.com/rem">follow me</a> if you like! (It\'s not really - I faked it!)';
-        },
-        onTimeoutCancel: true, // don't allow twitter to finsih the job
-        ignoreReplies: true
-    });
-
-    getTwitters('johnsTweets', {
-        id: 'fullfrontalconf', 
-        count: 20, 
-        withFriends: true, // currently disabled due to change in Twitter API
-        enableLinks: true, 
-        ignoreReplies: true,
-        includeRT: true,
-        template: '<span class="twitterPrefix"><img height="16" width="16" src="%user_profile_image_url%" /> <span class="twitterStatus">%text%</span> <em class="twitterTime"><a href="http://twitter.com/%user_screen_name%/statuses/%id%">%time%</a></em>'
-    });
+    
+    // getTwitters('remysTweets1', {
+    //     id: 'rem', 
+    //     prefix: '<img height="16" width="16" src="%profile_image_url%" /><a href="http://twitter.com/%screen_name%">%name%</a> said: ', 
+    //     clearContents: false, // leave the original message in place
+    //     count: 10, 
+    //     withFriends: true,
+    //     ignoreReplies: false,
+    //     newwindow: true
+    // });
+    
+    // getTwitters('remysTweets2', {
+    //     id: 'rem',
+    //     timeout: 1,
+    //     onTimeout: function () {
+    //         this.innerHTML = 'Actually, Twitter is down right now, but you can <a href="http://twitter.com/rem">follow me</a> if you like! (It\'s not really - I faked it!)';
+    //     },
+    //     onTimeoutCancel: true, // don't allow twitter to finsih the job
+    //     ignoreReplies: true
+    // });
+    // 
+    // getTwitters('johnsTweets', {
+    //     id: 'fullfrontalconf', 
+    //     count: 20, 
+    //     withFriends: true, // currently disabled due to change in Twitter API
+    //     enableLinks: true, 
+    //     ignoreReplies: true,
+    //     includeRT: true,
+    //     template: '<span class="twitterPrefix"><img height="16" width="16" src="%user_profile_image_url%" /> <span class="twitterStatus">%text%</span> <em class="twitterTime"><a href="http://twitter.com/%user_screen_name%/statuses/%id%">%time%</a></em>'
+    // });
     </script>
   </head>
   <body id="page">

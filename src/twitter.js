@@ -228,7 +228,7 @@ window.getTwitters = function (target, id, count, options) {
           script.onload = script.onreadystatechange = function () {
             if (typeof window.twitterlib !== 'undefined') getTweets();
           };
-          script.src = 'https://github.com/remy/twitterlib/raw/master/twitterlib.min.js';
+          script.src = 'http://remy.github.com/twitterlib/twitterlib.min.js';
 
           var head = document.head || document.getElementsByTagName('head')[0];
           head.insertBefore(script, head.firstChild);
