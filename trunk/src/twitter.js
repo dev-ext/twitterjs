@@ -74,7 +74,7 @@ var twitterjs = {},
           try {
             testEl.doScroll('left');
           } catch (e) {
-            return setTimeout(function() { domReady(fn) }, 50);
+            return setTimeout(function() { context['domReady'](fn) }, 50);
           }
           fn();
         }()
@@ -221,11 +221,13 @@ window.getTwitters = function (target, id, count, options) {
       
       
       // wait for twitterlib to be loaded
-      if (typeof twitterlib !== 'function') {
+      if (typeof twitterlib === 'undefined') {
         // load twitterlib and then run init
         setTimeout(function () {
           var script = document.createElement('script');
-          script.onload = script.onreadystatechange = getTweets;
+          script.onload = script.onreadystatechange = function () {
+            if (typeof window.twitterlib !== 'undefined') getTweets();
+          };
           script.src = 'https://github.com/remy/twitterlib/raw/master/twitterlib.min.js';
 
           var head = document.head || document.getElementsByTagName('head')[0];
