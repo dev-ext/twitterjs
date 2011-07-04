@@ -6,7 +6,7 @@
 </head>
 <body>
 <div id="log"></div>
-<script src="../src/ify.js"></script>
+<script src="https://github.com/remy/twitterlib/raw/master/twitterlib.js"></script>
 <script>
 log('RB @TrainWreckRadio: "@AmyisImaginary Lead your heart away........ are YOU still wide awake?" TY ♫ http://blip.fm/~c9s82');
 log('http://bit.ly/CONg1: "dl: what is it good for?" (@codepo8 @rossbruniges - would love a response!)');
@@ -18,7 +18,7 @@ log('http://images.google.com/images?q=bacon+log');
 log('http://www.youtube.com/watch?v=vdiTmEvxamM#t=1m15s #video');
 
 function log(s) {
-  document.querySelector('#log').innerHTML += '<p>' + ify.clean(s) + '</p>';
+  document.querySelector('#log').innerHTML += '<p>' + twitterlib.ify.clean(s) + '</p>';
 }
 </script>
 </body>
