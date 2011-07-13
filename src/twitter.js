@@ -176,7 +176,7 @@ window.getTwitters = function (target, id, count, options) {
         if (id.indexOf('/') !== -1) searchMethod = 'list';
         
         if (options.ignoreReplies) {
-          tlOptions.filter = '-@';
+          tlOptions.filter = { not: new RegExp(/^@/) };
         }
 
         twitterlib.cache(true); // just to speed things up
@@ -228,7 +228,7 @@ window.getTwitters = function (target, id, count, options) {
           script.onload = script.onreadystatechange = function () {
             if (typeof window.twitterlib !== 'undefined') getTweets();
           };
-          script.src = 'http://remy.github.com/twitterlib/twitterlib.min.js';
+          script.src = 'http://remy.github.com/twitterlib/twitterlib.js';
 
           var head = document.head || document.getElementsByTagName('head')[0];
           head.insertBefore(script, head.firstChild);
