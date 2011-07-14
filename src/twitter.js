@@ -181,6 +181,7 @@ window.getTwitters = function (target, id, count, options) {
 
         twitterlib.cache(true); // just to speed things up
         twitterlib[searchMethod](id, tlOptions, function (tweets, tlOptions) {
+          clearTimeout(window['twitterTimeout' + guid]);
           var html = [],
               max = tweets.length > options.count ? options.count : tweets.length;
 
